@@ -56,7 +56,7 @@ const ShowCase = ({ animes }: Props) => {
             </span>
           ))}
         </div>
-        <h2 className="text-animehorizon_orange text-4xl font-bold my-5">
+        <h2 className="text-animehorizon_orange text-3xl font-bold my-5">
           {currAnime.title}
         </h2>
         <p className="text-white text-md">
