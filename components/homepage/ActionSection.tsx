@@ -10,7 +10,7 @@ const ActionSection = async () => {
     <div className='mb-10 p-5 w-[90%] mx-auto'>
       <div className='text-animehorizon_orange flex items-center justify-between mb-2'>
         <h2 className='text-3xl font-bold'>Actions</h2>
-        <Link href='/action'>View All</Link>
+        <Link href='/genre/1'>View All</Link>
       </div>
 
       <CarouselComponent array={actionAnimes}/>

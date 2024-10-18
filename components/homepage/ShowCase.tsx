@@ -65,7 +65,7 @@ const ShowCase = ({ animes }: Props) => {
 
         <div className="my-5 flex">
           <Link
-            href="/"
+            href={`/anime/${animes[slide].id}`}
             className="bg-animehorizon_orange hover:bg-animehorizon_orange_hover text-white py-2 px-4 rounded-lg flex items-center justify-between"
           >
             <span>More Info</span>
