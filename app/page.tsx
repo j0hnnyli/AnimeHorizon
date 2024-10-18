@@ -3,7 +3,7 @@ import { Suspense } from "react";
 import ShowCase from "@/components/homepage/ShowCase";
 import PopularsSection from "@/components/homepage/PopularsSection";
 import FantasySection from "@/components/homepage/FantasySection";
-import SectionLoadingSkeletion from "@/components/homepage/SectionLoadingSkeletion";
+import SectionLoadingSkeletion from "@/components/SectionLoadingSkeletion";
 import ActionSection from "@/components/homepage/ActionSection";
 import HorrorSection from "@/components/homepage/HorrorSection";
 

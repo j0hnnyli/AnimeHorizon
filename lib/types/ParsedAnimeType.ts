@@ -11,4 +11,9 @@ export type ParsedAnimeType = {
   youtubeUrl: string,
   genres: Array<string>,
   rating: number,
+  rated?: string; 
+  producers?: string[]; 
+  year?: number; 
+  licensors?: string[]; 
+  themes?: string[]; 
 }

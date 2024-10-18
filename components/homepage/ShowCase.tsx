@@ -73,7 +73,7 @@ const ShowCase = ({ animes }: Props) => {
           </Link>
 
           <Link
-            href="/"
+            href={currAnime.youtubeUrl}
             target="_blank"
             className="bg-red-500 hover:bg-red-800 text-white py-2 px-4 rounded-lg mx-5 flex items-center justify-between"
           >
