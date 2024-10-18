@@ -1,6 +1,14 @@
 type ImageObject = {
-  jpg: Record<string, unknown>;
-  webp: Record<string, unknown>; 
+  jpg: {
+    image_url: string,
+    small_image_url: string,
+    large_image_url: string,
+  };
+  webp: {
+    image_url: string,
+    small_image_url: string,
+    large_image_url: string,
+  };
 };
 
 type Trailer = {
@@ -29,6 +37,27 @@ type Genres = {
   name : string
   type : string  
   url : string
+}
+
+type Producer = {
+  mal_id: number,
+  type: string,
+  name: string,
+  url: string
+}
+
+type Theme = {
+  mal_id: number,
+  type: string,
+  name: string,
+  url: string
+}
+
+type Liscensor = {
+  mal_id: number,
+  type: string,
+  name: string,
+  url: string
 }
 
 export type Anime = {
@@ -61,11 +90,11 @@ export type Anime = {
   season: string;
   year: number;
   broadcast: Broadcast;
-  producers: Array<Record<string, unknown>>; 
-  licensors: Array<Record<string, unknown>>; 
+  producers: Array<Producer>; 
+  licensors: Array<Liscensor>; 
   studios: Array<Record<string, unknown>>; 
   genres: Array<Genres>; 
   explicit_genres: Array<Record<string, unknown>>; 
-  themes: Array<Record<string, unknown>>; 
+  themes: Array<Theme>; 
   demographics: Array<Record<string, unknown>>; 
 };

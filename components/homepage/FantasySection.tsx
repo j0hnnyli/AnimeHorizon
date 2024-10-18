@@ -4,7 +4,6 @@ import Link from 'next/link'
 import { getAnimesByGenres, wait } from '@/lib/fetchFns'
 
 const FantasySection = async () => {
-  // await wait(5000)
   const fantasyAnimes = await getAnimesByGenres('10')
 
   return (
