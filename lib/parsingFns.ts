@@ -1,6 +1,7 @@
 import { Anime } from "./types/AnimeType";
 import { Character } from "./types/CharacterType";
 import { Recommendation } from "./types/RecommendationType";
+import { Genre } from "./types/GenreType";
 
 export function parseAnimes(animes : Array<Anime>){
   const parsed = animes.map((anime) => (
@@ -60,6 +61,17 @@ export function parseRecommendations(recommendations: Recommendation[]){
       id: recommend.entry.mal_id,
       title: recommend.entry.title || "",
       image : recommend.entry.images.jpg.image_url || ""
+    }
+  ))
+
+  return parsed;
+}
+
+export function parseGenres(genres: Genre[] ){
+  const parsed = genres.map((genre) => (
+    {
+      id: genre.mal_id,
+      name : genre.name || "",
     }
   ))
 
