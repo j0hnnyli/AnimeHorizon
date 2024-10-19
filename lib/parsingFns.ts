@@ -1,13 +1,13 @@
-import { Anime } from "./types/AnimeType";
+import { Anime, SingleAnime } from "./types/AnimeType";
 import { Character } from "./types/CharacterType";
 import { Recommendation } from "./types/RecommendationType";
 import { Genre } from "./types/GenreType";
 
-export function parseAnimes(animes : Array<Anime>){
-  const parsed = animes.map((anime) => (
+export function parseAnimes(animes : Anime){
+  const parsed = animes.data.map((anime) => (
     {
       id: anime.mal_id || 0,
-      title: anime.title_english || "",
+      title: anime.title_english || anime.title,
       images: {
         small : anime?.images?.jpg?.image_url || "",
         large : anime?.images?.jpg?.large_image_url || "",
@@ -19,13 +19,13 @@ export function parseAnimes(animes : Array<Anime>){
     }
   ))
 
-  return parsed;
+  return { maxPage: animes.pagination.last_visible_page, animes: parsed};
 }
 
-export function parseSingleAnime(anime: Anime){
+export function parseSingleAnime(anime: SingleAnime){
   return {
     id: anime.mal_id || 0,
-    title: anime.title_english || "",
+    title: anime.title_english || anime.title,
     images: {
       small : anime?.images?.jpg?.image_url || "",
       large : anime?.images?.jpg?.large_image_url || "",

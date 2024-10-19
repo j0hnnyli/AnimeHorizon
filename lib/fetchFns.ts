@@ -15,17 +15,17 @@ export async function getPopularsAnimes(page: number) {
 
   const data = await res.json();
 
-  return parseAnimes(data.data);
+  return parseAnimes(data);
 }
 
-export async function getAnimesByGenres(genre_id: string) {
-  const res = await fetch(`${ANIME_BASE_URL}/anime?genres=${genre_id}?sfw=true`);
+export async function getAnimesByGenres(genre_id: string, page: number) {
+  const res = await fetch(`${ANIME_BASE_URL}/anime?genres=${genre_id}&sfw=true&page=${page}`);
 
   if (!res.ok) throw new Error("Fetching Animes By Genres Failed");
 
   const data = await res.json();
 
-  return parseAnimes(data.data);
+  return parseAnimes(data);
 }
 
 export async function getAnime(id: number) {

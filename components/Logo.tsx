@@ -12,7 +12,7 @@ const Logo = () => {
       />
     </svg>
     <Link href='/' 
-      className='text-animehorizon_orange text-xl font-bold'
+      className='text-animehorizon_orange text-xl font-bold w-[150px] hover:text-white'
     >
       Anime Horizon
     </Link>

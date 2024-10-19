@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { getAnimesByGenres, wait } from '@/lib/fetchFns'
 
 const FantasySection = async () => {
-  const fantasyAnimes = await getAnimesByGenres('10')
+  const {animes} = await getAnimesByGenres('10', 1)
 
   return (
     <div className='mb-10 p-5 w-[90%] mx-auto'>
@@ -13,7 +13,7 @@ const FantasySection = async () => {
         <Link href='/genre/10'>View All</Link>
       </div>
 
-      <CarouselComponent array={fantasyAnimes}/>
+      <CarouselComponent array={animes}/>
    </div>
   )
 }
