@@ -1,10 +1,9 @@
 import { getPopularsAnimes } from '@/lib/fetchFns'
-import { ParsedAnimeType } from '@/lib/types/ParsedAnimeType';
 import Link from 'next/link';
 import CarouselComponent from '../CarouselComponent';
 
 const PopularsSection = async () => {
-  const populars : ParsedAnimeType[] = await getPopularsAnimes(1);
+  const { animes } = await getPopularsAnimes(1);
 
   return (
     <div className='my-10 p-5 w-[90%] mx-auto'>
@@ -13,7 +12,7 @@ const PopularsSection = async () => {
         <Link href='/animes/'>View All</Link>
       </div>
 
-      <CarouselComponent array={populars}/>
+      <CarouselComponent array={animes}/>
     </div>
   )
 }

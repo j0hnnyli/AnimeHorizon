@@ -4,7 +4,7 @@ import Link from 'next/link'
 import CarouselComponent from '../CarouselComponent'
 
 const ActionSection = async () => {
-  const actionAnimes = await getAnimesByGenres('1')
+  const {maxPage, animes} = await getAnimesByGenres('1', 1)
 
   return (
     <div className='mb-10 p-5 w-[90%] mx-auto'>
@@ -13,7 +13,7 @@ const ActionSection = async () => {
         <Link href='/genre/1'>View All</Link>
       </div>
 
-      <CarouselComponent array={actionAnimes}/>
+      <CarouselComponent array={animes}/>
     </div>
   )
 }

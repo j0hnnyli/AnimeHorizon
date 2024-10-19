@@ -4,7 +4,7 @@ import CarouselComponent from '../CarouselComponent'
 import { getAnimesByGenres } from '@/lib/fetchFns'
 
 const HorrorSection = async () => {
-  const horrorAnimes = await getAnimesByGenres('14')
+  const {animes} = await getAnimesByGenres('14', 1)
 
   return (
     <div className='mb-10 p-5 w-[90%] mx-auto'>
@@ -13,7 +13,7 @@ const HorrorSection = async () => {
         <Link href='/genre/14'>View All</Link>
       </div>
 
-      <CarouselComponent array={horrorAnimes}/>
+      <CarouselComponent array={animes}/>
     </div>
   )
 }

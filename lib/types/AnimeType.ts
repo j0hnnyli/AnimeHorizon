@@ -60,7 +60,7 @@ type Liscensor = {
   url: string
 }
 
-export type Anime = {
+type Data = {
   mal_id: number;
   url: string;
   images: ImageObject;
@@ -98,3 +98,21 @@ export type Anime = {
   themes: Array<Theme>; 
   demographics: Array<Record<string, unknown>>; 
 };
+
+type Pagincation = {
+  last_visible_page: number,
+  current_page: number,
+  items: {
+    count: number,
+    total: number,
+    per_page: number
+  }
+}
+
+export type Anime = {
+  pagination : Pagincation;
+  data: Data[]
+}
+
+export type SingleAnime = Data;
+

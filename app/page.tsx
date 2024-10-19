@@ -8,10 +8,10 @@ import ActionSection from "@/components/homepage/ActionSection";
 import HorrorSection from "@/components/homepage/HorrorSection";
 
 export default async function Home() {
-  const popularAnimes = await getPopularsAnimes(1);
-
+  const { animes: popularAnimes } = await getPopularsAnimes(1);
+  
   return (
-    <div>
+    <div className="max-w-[2000px] mx-auto">
       <ShowCase animes={popularAnimes}/>
 
       <Suspense fallback={ <SectionLoadingSkeletion/> }>
