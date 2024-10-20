@@ -1,27 +1,34 @@
-import React, { Suspense } from 'react'
-import { wait } from '@/lib/fetchFns';
-import Searchbar from '@/components/Searchbar';
-import SearchDisplayContainer from './SearchDisplayContainer';
-import SectionLoadingSkeletion from '@/components/SectionLoadingSkeletion';
+import React, { Suspense } from "react";
+import { wait } from "@/lib/fetchFns";
+import Searchbar from "@/components/Searchbar";
+import SearchDisplayContainer from "./SearchDisplayContainer";
+import SectionLoadingSkeletion from "@/components/SectionLoadingSkeletion";
+import SpinnerIcon from "@/components/icons/Spinner";
 
 type Props = {
-  searchParams:{
-    query: string
-  }
-}
+  searchParams: {
+    query: string;
+  };
+};
 
-const SearchPage = async ({searchParams} : Props) => {
+const SearchPage = async ({ searchParams }: Props) => {
   return (
-    <div className='w-[90%] mx-auto max-w-[2000px]'>
-      <Searchbar defaultSearchValue={searchParams.query}/>
+    <div className="w-[90%] mx-auto max-w-[2000px]">
+      <Searchbar defaultSearchValue={searchParams.query} />
 
       {searchParams.query && (
-        <Suspense fallback={<SectionLoadingSkeletion className='w-full h-96'/>}>
-          <SearchDisplayContainer searchQuery={searchParams.query}/>
-        </Suspense> 
+        <Suspense
+          fallback={
+            <div className="flex h-[calc(100vh-250px)] w-screen items-center justify-center md:h-full md:w-full">
+              <SpinnerIcon />
+            </div>
+          }
+        >
+          <SearchDisplayContainer searchQuery={searchParams.query} />
+        </Suspense>
       )}
     </div>
-  )
-}
+  );
+};
 
 export default SearchPage;

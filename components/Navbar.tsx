@@ -60,7 +60,7 @@ async function Genres(){
         {genres.map((genre) => (
           <Link 
             key={genre.id}
-            href={`/genre/${genre.id}?page=1`}
+            href={`/genre/${genre.id}?page=1&name=${genre.name}`}
             className='m-2 w-full text-left hover:text-animehorizon_orange'
           >
             {genre.name}

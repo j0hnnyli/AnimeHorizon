@@ -18,7 +18,7 @@ export async function getPopularsAnimes(page: number) {
   return parseAnimes(data);
 }
 
-export async function getAnimesByGenres(genre_id: string, page: number) {
+export async function getAnimesByGenres(genre_id: string, page: number){
   const res = await fetch(`${ANIME_BASE_URL}/anime?genres=${genre_id}&sfw=true&page=${page}`);
 
   if (!res.ok) throw new Error("Fetching Animes By Genres Failed");

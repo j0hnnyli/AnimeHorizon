@@ -18,7 +18,6 @@ const AnimeReactPlayer = ({url} : Props) => {
       {url.length > 0 ? (
         <div>
           {isClient&& (
-
             <ReactPlayer
               url={url}
               playing={false}
