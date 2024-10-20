@@ -9,7 +9,7 @@ const Characters = async ({id} : Props ) => {
   const characters = await getCharacters(id)
 
   return (
-    <div className='w-[80%] mx-auto my-10'>
+    <div className='w-[90%] mx-auto my-10'>
       <h2 className='text-2xl'>
         <span className='text-animehorizon_orange font-bold'>Characters :</span>
         <span className='ml-2'>{characters.length}</span>

@@ -1,6 +1,6 @@
 import AnimeRatingStars from "@/components/AnimeRatingStars";
 import AnimeReactPlayer from "@/components/AnimeReactPlayer";
-import { getAnime, getGenres } from "@/lib/fetchFns";
+import { getAnime, getGenres, wait } from "@/lib/fetchFns";
 import ShowLessMoreText from "@/components/ShowLessMoreText";
 import Image from "next/image";
 import { FaRibbon } from "react-icons/fa"
@@ -17,6 +17,7 @@ type Props = {
 
 
 const AnimePage = async ({ params }: Props) => {
+
   const {
     id,
     title,
@@ -33,7 +34,7 @@ const AnimePage = async ({ params }: Props) => {
   } = await getAnime(params.id);
 
   return (
-    <div className="text-white">
+    <div className="text-white max-w-[2000px]">
       <div className="relative h-[50vh]">
         <Image
           src={images.large}
@@ -52,8 +53,8 @@ const AnimePage = async ({ params }: Props) => {
           className="relative z-20 h-full w-[400px] mx-auto"
         />
       </div>
-
-      <div className=" w-[80%] mx-auto mt-10 flex gap-3">
+      
+      <div className=" w-[90%] mx-auto mt-10 flex gap-3">
         <div className="w-[70%]">
           <h2 className="text-animehorizon_orange text-4xl font-bold mb-3">{title}</h2>
 
@@ -121,7 +122,7 @@ const AnimePage = async ({ params }: Props) => {
 
         </div>
 
-        <div>
+        <div className="w-[50%] h-[250px]">
           <AnimeReactPlayer url={youtubeUrl}/>
         </div>
       </div>

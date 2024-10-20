@@ -69,6 +69,16 @@ export async function getRecommendedAnimes(id: number) {
   return parseRecommendations(data.data);
 }
 
+export async function getAnimeBySearch(query: string){
+  const res = await fetch(`${ANIME_BASE_URL}/anime?q=${query}`)
+
+  if(!res.ok) throw new Error(`Fetching Anime By: ${query} Failed`)
+
+  const data = await res.json();
+
+  return parseAnimes(data)
+}
+
 export async function wait(time: number): Promise<void> {
   return new Promise((resolve, reject) =>
     setTimeout(() => {
