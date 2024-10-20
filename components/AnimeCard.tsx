@@ -14,10 +14,10 @@ type Props = {
 const AnimeCard = ({ id, url, title }: Props) => {
   return (
     <div className="relative">
-      <Link href={`/anime/${id}`} className="absolute w-full h-full"></Link>
+      <Link href={`/anime/${id}`} className="absolute w-full h-full z-30"></Link>
       <div className="h-[250px] w-full relative">
         <HoverTip
-          className="absolute bottom-3 right-3 z-30 hover:text-white text-black p-2 flex justify-center items-center rounded-full bg-animehorizon_orange"
+          className="absolute bottom-3 right-3 z-40 hover:text-white text-black p-2 flex justify-center items-center rounded-full bg-animehorizon_orange"
           children={<FaPlus className='text-md'/>}
         />
         <Image
