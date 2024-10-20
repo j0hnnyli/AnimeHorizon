@@ -6,15 +6,16 @@ type Props = {
   maxPage : number;
   currpage: number;
   url: string;
+  extraQueries?: string
 }
 
-const PaginationsComponent = ({maxPage, currpage, url} : Props) => {
+const PaginationsComponent = ({maxPage, currpage, url, extraQueries = ""} : Props) => {
   return (
     <div className='flex justify-between items-center w-full mb-5'>
       {
         currpage > 1 ? (
           <Link
-            href={`${url}?page=${Number(currpage) - 1}`} 
+            href={`${url}?page=${Number(currpage) - 1}&${extraQueries}` } 
             className='py-2 px-4 border-animehorizon_orange border-2 flex items-center justify-center rounded-lg text-animehorizon_orange hover:text-white'
           >
             <FaArrowLeftLong/>
@@ -31,7 +32,7 @@ const PaginationsComponent = ({maxPage, currpage, url} : Props) => {
       {
         currpage < maxPage ? (
           <Link   
-            href={`${url}?page=${Number(currpage) + 1}`} 
+            href={`${url}?page=${Number(currpage) + 1}&${extraQueries}`} 
             className='py-2 px-4 border-animehorizon_orange border-2 flex items-center justify-center rounded-lg text-animehorizon_orange hover:text-white'
           >
             <FaArrowRightLong/>

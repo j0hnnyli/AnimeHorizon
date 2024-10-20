@@ -1,6 +1,6 @@
 import AnimeRatingStars from "@/components/AnimeRatingStars";
 import AnimeReactPlayer from "@/components/AnimeReactPlayer";
-import { getAnime, getGenres, wait } from "@/lib/fetchFns";
+import { getAnime } from "@/lib/fetchFns";
 import ShowLessMoreText from "@/components/ShowLessMoreText";
 import Image from "next/image";
 import { FaRibbon } from "react-icons/fa"
@@ -17,7 +17,6 @@ type Props = {
 
 
 const AnimePage = async ({ params }: Props) => {
-
   const {
     id,
     title,
@@ -127,11 +126,11 @@ const AnimePage = async ({ params }: Props) => {
         </div>
       </div>
       
-      <Suspense fallback={<SectionLoadingSkeletion className="h-[410px] mt-10 w-[80%]"/>}>
+      <Suspense fallback={<SectionLoadingSkeletion className="h-[410px] mt-10 w-[90%]"/>}>
         <Characters id={id}/>
       </Suspense>
       
-      <Suspense fallback={<SectionLoadingSkeletion className="w-[80%]"/>}>
+      <Suspense fallback={<SectionLoadingSkeletion className="w-[90%]"/>}>
         <Recommendations id={id}/>
       </Suspense>
     </div>
