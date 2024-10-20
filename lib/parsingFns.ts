@@ -60,7 +60,7 @@ export function parseRecommendations(recommendations: Recommendation[]){
     {
       id: recommend.entry.mal_id,
       title: recommend.entry.title || "",
-      image : recommend.entry.images.jpg.image_url || ""
+      image : recommend.entry.images.jpg.large_image_url || ""
     }
   ))
 

@@ -22,7 +22,7 @@ const CarouselComponent = ({array} : Props) => {
                 key={anime.id}
                 id={anime.id} 
                 title={anime.title}
-                url={anime.images.small}
+                url={anime.images.large}
               />
             </CarouselItem>
           ))

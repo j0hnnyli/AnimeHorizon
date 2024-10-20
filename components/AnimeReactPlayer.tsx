@@ -14,20 +14,22 @@ const AnimeReactPlayer = ({url} : Props) => {
   }, []);
 
   return (
-    <div>
-      {isClient && (
-        <>
-          <ReactPlayer
-            url={url}
-            playing={false}
-            controls={true}
-            width={500}
-            height={300}
-          />
-          {url === '' && <p className="text-red-500">Sorry Trailer not working for this anime</p>}
-        </>
-      )}
-    </div>
+    <>
+      {url.length > 0 ? (
+        <div>
+          {isClient&& (
+
+            <ReactPlayer
+              url={url}
+              playing={false}
+              controls={true}
+              width='100%'
+              height='300px'
+            />
+          )}
+        </div>
+      ) : null}
+    </>
   );
 }
 
