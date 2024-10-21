@@ -5,7 +5,7 @@ import { createContext, ReactNode, useEffect, useState } from "react"
 import { getAnime } from '@/lib/fetchFns'
 
 type WatchlistContextType = {
-  handleAddWatchlist: (id: number) => void;
+  handleAddWatchlist: (anime: ParsedAnimeType) => void;
   handleDelete: (id: number) => void;
   watchlist: ParsedAnimeType[]
 }
@@ -14,7 +14,7 @@ const initalWatchlist : ParsedAnimeType[] = []
 
 const watchlistContext = createContext<WatchlistContextType>({
   watchlist: initalWatchlist,
-  handleAddWatchlist: (id: number) => {},
+  handleAddWatchlist: (anime: ParsedAnimeType) => {},
   handleDelete: (id: number) => {},
 })
 
@@ -28,9 +28,7 @@ function WatchlistProvider({children} : { children: ReactNode}){
     return [];
   });
 
-  const handleAddWatchlist = async (id: number) => {
-    const anime = await getAnime(id)
-
+  const handleAddWatchlist = (anime: ParsedAnimeType) => {
     setWatchlist([anime, ...watchlist])
   }
 

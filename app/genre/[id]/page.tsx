@@ -35,6 +35,7 @@ const GenrePage = async ({ params, searchParams }: Props) => {
         {animes.map((anime) => (
           
           <AnimeCard
+            anime={anime}
             key={anime.id}
             id={anime.id}
             url={anime.images.large}
