@@ -17,7 +17,7 @@ const CarouselComponent = ({array} : Props) => {
     <Carousel>
       <CarouselContent className='flex'>
         {array.map((anime) => (
-            <CarouselItem key={anime.id} className='basis-1/5'>
+            <CarouselItem key={anime.id} className='basis-1/6'>
               <AnimeCard 
                 key={anime.id}
                 id={anime.id} 

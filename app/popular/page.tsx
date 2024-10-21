@@ -1,5 +1,5 @@
 import React from 'react'
-import { getPopularsAnimes, wait } from '@/lib/fetchFns'
+import { getPopularsAnimes } from '@/lib/fetchFns'
 import AnimeCard from '@/components/AnimeCard';
 import PaginationsComponent from '@/components/PaginationsComponent';
 
@@ -22,7 +22,7 @@ const PopularPage = async ({searchParams} : Props) => {
         url={`/popular`}
       />
 
-      <div className='text-white grid grid-cols-5 gap-5'>
+      <div className='text-white grid grid-cols-6 gap-5'>
         {animes.map((anime) => (
           <AnimeCard
             key={anime.id}

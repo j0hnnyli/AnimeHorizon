@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { getCharacters, wait } from '@/lib/fetchFns'
+import { getCharacters } from '@/lib/fetchFns'
 
 type Props = {
   id: number

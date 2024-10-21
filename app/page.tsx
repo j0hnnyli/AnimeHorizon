@@ -1,4 +1,4 @@
-import { getPopularsAnimes, getGenres } from "@/lib/fetchFns";
+import { getPopularsAnimes } from "@/lib/fetchFns";
 import { Suspense } from "react";
 import ShowCase from "@/components/homepage/ShowCase";
 import PopularsSection from "@/components/homepage/PopularsSection";

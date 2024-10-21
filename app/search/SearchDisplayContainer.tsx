@@ -13,7 +13,7 @@ const SearchDisplayContainer = async ({searchQuery} : Props) => {
   return (
     <>
       <h2 className='text-3xl text-animehorizon_orange font-bold mb-5'>Top Results</h2>
-      <div className='text-white grid grid-cols-5 gap-5'>
+      <div className='text-white grid grid-cols-6 gap-5'>
         {animes.map((anime) => (
           <AnimeCard
             key={anime.id}
@@ -21,6 +21,7 @@ const SearchDisplayContainer = async ({searchQuery} : Props) => {
             url={anime.images.large}
             title={anime.title}
           />
+        
         ))}
       </div>
     </>
