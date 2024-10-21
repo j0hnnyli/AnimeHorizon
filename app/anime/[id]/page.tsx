@@ -8,6 +8,7 @@ import Characters from "@/components/Characters";
 import { Suspense } from "react";
 import SectionLoadingSkeletion from "@/components/SectionLoadingSkeletion";
 import Recommendations from "@/components/Recommendations";
+import AddButton from "../AddButton";
 
 type Props = {
   params: {
@@ -17,6 +18,7 @@ type Props = {
 
 
 const AnimePage = async ({ params }: Props) => {
+  const anime = await getAnime(params.id);
   const {
     id,
     title,
@@ -30,8 +32,8 @@ const AnimePage = async ({ params }: Props) => {
     year,
     licensors,
     themes
-  } = await getAnime(params.id);
-
+  }  = anime;
+  
   return (
     <div className="text-white max-w-[2000px]">
       <div className="relative h-[50vh]">
@@ -72,12 +74,7 @@ const AnimePage = async ({ params }: Props) => {
 
           <AnimeRatingStars rating={rating}/>
 
-          <button 
-            className="flex items-center border-2 border-animehorizon_orange text-animehorizon_orange py-1 px-3 hover:text-white hover:bg-animehorizon_orange my-3"
-          >
-            <FaRibbon className="mr-3"/>
-            <span>ADD TO WATCHLIST</span>
-          </button>
+          <AddButton id={id} anime={anime}/>
           
           <ShowLessMoreText text={about} className="mb-3"/>
           

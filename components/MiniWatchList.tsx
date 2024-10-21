@@ -18,7 +18,7 @@ const MiniWatchList = () => {
       <div className=''>
         {watchlist.map((anime) => (
           <div key={anime.id} className=' mb-5'>
-            <div className='h-32 w-[60%] mx-auto relative'>
+            <div className='h-40 w-[60%] mx-auto relative'>
               <Image
                 src={anime.images.large}
                 alt={anime.title}

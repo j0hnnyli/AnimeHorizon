@@ -28,7 +28,7 @@ export default function RootLayout({
 }>) {
   return (
     <WatchlistProvider>
-      <html lang="en">
+      <html lang="en" >
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased bg-animehorizon_black`}
         >
