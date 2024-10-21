@@ -6,6 +6,12 @@ import NavBarBrowse from './NavBarBrowse';
 import { getGenres } from '@/lib/fetchFns';
 import { Suspense } from 'react';
 import SectionLoadingSkeletion from './SectionLoadingSkeletion';
+import {
+  Sheet,
+  SheetContent,
+  SheetTrigger,
+} from "@/components/ui/sheet"
+import MiniWatchList from './MiniWatchList';
 
 const Navbar = () => {
   return (
@@ -26,11 +32,15 @@ const Navbar = () => {
           <FaMagnifyingGlass className='text-xl'/>
         </Link>
 
-        <Link href='/mylist'
-          className='h-20 flex justify-center items-center hover:bg-gray-800 px-3'
-        >
-          <FaTv className='text-xl'/>
-        </Link>
+        <Sheet>
+          <SheetTrigger className='h-20 flex justify-center items-center hover:bg-gray-800 px-3'>
+            <FaTv className='text-xl'/>
+          </SheetTrigger>
+
+          <SheetContent className='bg-black text-white w-80'>
+            <MiniWatchList/>
+          </SheetContent>
+        </Sheet>
       </div>
     </div>
   )

@@ -31,14 +31,16 @@ const GenrePage = async ({ params, searchParams }: Props) => {
         extraQueries={`name=${searchParams.name}`}
       />
 
-      <div className="text-white grid grid-cols-5 gap-5">
+      <div className="text-white grid grid-cols-6 gap-5">
         {animes.map((anime) => (
+          
           <AnimeCard
             key={anime.id}
             id={anime.id}
             url={anime.images.large}
             title={anime.title}
           />
+      
         ))}
       </div>
     </div>

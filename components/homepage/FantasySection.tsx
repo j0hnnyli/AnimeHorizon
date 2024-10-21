@@ -1,7 +1,7 @@
 import React from 'react'
 import CarouselComponent from '../CarouselComponent'
 import Link from 'next/link'
-import { getAnimesByGenres, wait } from '@/lib/fetchFns'
+import { getAnimesByGenres } from '@/lib/fetchFns'
 
 const FantasySection = async () => {
   const {animes} = await getAnimesByGenres('10', 1)

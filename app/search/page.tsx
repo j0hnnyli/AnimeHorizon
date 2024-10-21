@@ -1,8 +1,6 @@
 import React, { Suspense } from "react";
-import { wait } from "@/lib/fetchFns";
 import Searchbar from "@/components/Searchbar";
 import SearchDisplayContainer from "./SearchDisplayContainer";
-import SectionLoadingSkeletion from "@/components/SectionLoadingSkeletion";
 import SpinnerIcon from "@/components/icons/Spinner";
 
 type Props = {

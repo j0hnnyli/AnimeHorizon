@@ -80,7 +80,7 @@ export async function getAnimeBySearch(query: string){
 }
 
 export async function wait(time: number): Promise<void> {
-  return new Promise((resolve, reject) =>
+  return new Promise((resolve) =>
     setTimeout(() => {
       resolve();
     }, time)

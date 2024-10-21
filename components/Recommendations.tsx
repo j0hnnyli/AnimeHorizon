@@ -26,7 +26,7 @@ const Recommendations = async ({ id } : Props) => {
       <Carousel>
         <CarouselContent>
           {recommendations.map(({id, title, image}) => (
-              <CarouselItem key={id} className='basis-1/5'>
+              <CarouselItem key={id} className='basis-1/6'>
                 <AnimeCard 
                   key={id}
                   id={id} 
