@@ -31,7 +31,7 @@ export default function RootLayout({
     <WatchlistProvider>
       <html lang="en" >
         <body
-          className={`${geistSans.variable} ${geistMono.variable} antialiased bg-animehorizon_black box-content`}
+          className={`${geistSans.variable} ${geistMono.variable} antialiased bg-animehorizon_black`}
         >
           <Navbar/>
           <MediaNavbar/>
