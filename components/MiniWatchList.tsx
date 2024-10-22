@@ -18,7 +18,7 @@ const MiniWatchList = () => {
       <div className=''>
         {watchlist.map((anime) => (
           <div key={anime.id} className=' mb-5'>
-            <div className='h-40 w-[60%] mx-auto relative'>
+            <div className='h-40 w-[50%] md:w-[60%] mx-auto relative'>
               <Image
                 src={anime.images.large}
                 alt={anime.title}
@@ -29,7 +29,7 @@ const MiniWatchList = () => {
 
               <button 
                 onClick={() => handleDelete(anime.id)}
-                className='absolute bottom-3 right-3 z-20 hover:text-white text-black p-2 flex justify-center items-center rounded-full bg-animehorizon_orange'
+                className='absolute bottom-3 right-3 z-20 hover:text-white p-2 flex justify-center items-center rounded-full bg-animehorizon_orange text-red-900'
               >
                 <FaTrash className='text-md'/>
               </button>

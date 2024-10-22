@@ -61,12 +61,13 @@ export async function getCharacters(id: number) {
 export async function getRecommendedAnimes(id: number) {
   const res = await fetch(`${ANIME_BASE_URL}/anime/${id}/recommendations`);
 
-  if (!res.ok)
-    throw new Error(`Fetching Recommendations for Anime: ${id} Failed`);
+  if (!res.ok) {
+    throw new Error(`Fetching recommendations for anime with ID ${id} failed: ${res.statusText}`);
+  }
 
   const data = await res.json();
 
-  return parseRecommendations(data.data);
+  return parseRecommendations(data.data); 
 }
 
 export async function getAnimeBySearch(query: string){
