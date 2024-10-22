@@ -39,7 +39,9 @@ export async function getAnime(id: number) {
 }
 
 export async function getGenres() {
-  const res = await fetch(`${ANIME_BASE_URL}/genres/anime?filter=genres`);
+  const res = await fetch(`${ANIME_BASE_URL}/genres/anime?filter=genres`, {
+    cache: 'force-cache'
+  });
 
   if (!res.ok) throw new Error("Fetching Genres Failed");
 
