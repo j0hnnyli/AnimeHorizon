@@ -14,10 +14,13 @@ type Props = {
 
 const CarouselComponent = ({array} : Props) => {
   return (
-    <Carousel>
+    <Carousel opts={{
+      slidesToScroll: 2,
+      dragFree: true
+    }}>
       <CarouselContent className='flex'>
         {array.map((anime) => (
-            <CarouselItem key={anime.id} className='basis-1/6'>
+            <CarouselItem key={anime.id} className='basis-1/2 md:basis-1/4 lg:basis-1/5 xl:basis-1/6 2xl:basis-1/7'>
               <AnimeCard 
                 anime={anime}
                 key={anime.id}
@@ -29,8 +32,8 @@ const CarouselComponent = ({array} : Props) => {
           ))
         }
       </CarouselContent>
-      <CarouselPrevious/>
-      <CarouselNext/>
+      <CarouselPrevious className="hidden lg:flex"/>
+      <CarouselNext className="hidden lg:flex"/>
     </Carousel>
   )
 }

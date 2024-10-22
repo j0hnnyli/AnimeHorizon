@@ -3,7 +3,6 @@ import AnimeReactPlayer from "@/components/AnimeReactPlayer";
 import { getAnime } from "@/lib/fetchFns";
 import ShowLessMoreText from "@/components/ShowLessMoreText";
 import Image from "next/image";
-import { FaRibbon } from "react-icons/fa"
 import Characters from "@/components/Characters";
 import { Suspense } from "react";
 import SectionLoadingSkeletion from "@/components/SectionLoadingSkeletion";
@@ -35,7 +34,7 @@ const AnimePage = async ({ params }: Props) => {
   }  = anime;
   
   return (
-    <div className="text-white max-w-[2000px]">
+    <div className="text-white max-w-[2000px] mx-auto">
       <div className="relative h-[50vh]">
         <Image
           src={images.large}
@@ -55,8 +54,8 @@ const AnimePage = async ({ params }: Props) => {
         />
       </div>
       
-      <div className=" w-[90%] mx-auto mt-10 flex gap-3">
-        <div className="w-[70%]">
+      <div className="w-[90%] mx-auto mt-10 flex flex-col lg:flex-row gap-3">
+        <div className="w-full lg:w-[70%]">
           <h2 className="text-animehorizon_orange text-4xl font-bold mb-3">{title}</h2>
 
           <div className="mb-3">
@@ -81,7 +80,7 @@ const AnimePage = async ({ params }: Props) => {
           <div className="">
             <div className="w-full flex items-center justify-between py-2 border-b border-gray-300">
               <h3>Producers</h3>
-              <div className="max-w-[50%] text-right">
+              <div className="max-w-[70%] text-right">
                 {producers.length ? producers.map((producer) => <span key={producer} className="ml-2">{producer}</span>) : '-'}
               </div>
             </div>
@@ -118,7 +117,7 @@ const AnimePage = async ({ params }: Props) => {
 
         </div>
 
-        <div className="w-[50%] h-[250px]">
+        <div className="lg:w-[50%] h-[250px] my-5 lg:my-0">
           <AnimeReactPlayer url={youtubeUrl}/>
         </div>
       </div>

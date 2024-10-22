@@ -16,7 +16,7 @@ import MiniWatchList from './MiniWatchList';
 const Navbar = () => {
   return (
     <div 
-      className="flex items-center justify-between top-0 fixed w-full text-animehorizon_orange z-50 bg-animehorizon_black h-20 px-5"
+      className="hidden md:flex items-center justify-between top-0 fixed w-full text-animehorizon_orange z-50 bg-animehorizon_black h-20 px-5"
     >
       <div className='flex items-center'>
         <Logo/>

@@ -1,6 +1,5 @@
 import React from 'react'
 import { getRecommendedAnimes } from '@/lib/fetchFns'
-import AnimeCard from './AnimeCard'
 import {
   Carousel,
   CarouselContent,
@@ -8,6 +7,8 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel"
+import Image from 'next/image'
+import Link from 'next/link'
 
 type Props = {
   id: number;
@@ -23,22 +24,31 @@ const Recommendations = async ({ id } : Props) => {
         <span className='ml-2'>{recommendations.length}</span>
       </h2>
 
-      <Carousel>
+      <Carousel opts={{
+        dragFree: true,
+      }}>
         <CarouselContent>
           {recommendations.map(({id, title, image}) => (
-              <CarouselItem key={id} className='basis-1/6'>
-                <AnimeCard 
-                  key={id}
-                  id={id} 
-                  title={title}
-                  url={image}
-                />
+              <CarouselItem key={id} className='basis-1/2 md:basis-1/4 lg:basis-1/5 xl:basis-1/6 hover:text-animehorizon_orange'>
+                <div className="relative">
+                  <Link href={`/anime/${id}`} className="absolute w-full h-full z-10"></Link>
+                  <div className="h-[250px] relative">
+                    <Image
+                      src={image}
+                      alt={title}
+                      width={200}
+                      height={300}
+                      className="w-full h-full"
+                    />
+                  </div>
+                  <h3 className="text-white text-md">{title}</h3>
+                </div> 
               </CarouselItem>
             ))
           }
         </CarouselContent>
-      <CarouselPrevious className='text-animehorizon_orange'/>
-      <CarouselNext className='text-animehorizon_orange'/>
+        <CarouselPrevious className="hidden lg:flex text-black"/>
+        <CarouselNext className="hidden lg:flex text-black"/>
     </Carousel>
     </div>
   )

@@ -14,7 +14,7 @@ const Characters = async ({id} : Props ) => {
         <span className='text-animehorizon_orange font-bold'>Characters :</span>
         <span className='ml-2'>{characters.length}</span>
       </h2>
-      <div className='max-h-[400px] overflow-auto grid grid-cols-6 justify-between items-center gap-5'>
+      <div className='max-h-[400px] overflow-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-7 justify-between items-center gap-5'>
         {characters.map(({image, name, role, id}) => (
           <CharacterCard
             key={id}

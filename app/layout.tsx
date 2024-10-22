@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { WatchlistProvider } from "@/context/watchlistContext";
+import MediaNavbar from "@/components/Media/MediaNavbar";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -30,12 +31,13 @@ export default function RootLayout({
     <WatchlistProvider>
       <html lang="en" >
         <body
-          className={`${geistSans.variable} ${geistMono.variable} antialiased bg-animehorizon_black`}
+          className={`${geistSans.variable} ${geistMono.variable} antialiased bg-animehorizon_black box-content`}
         >
           <Navbar/>
-              <main className="md:mt-20">
-                  {children}
-              </main>
+          <MediaNavbar/>
+            <main className="mt-16 md:mt-20">
+                {children}
+            </main>
           <Footer/>
         </body>
       </html>

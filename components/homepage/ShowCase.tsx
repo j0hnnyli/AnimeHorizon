@@ -45,7 +45,7 @@ const ShowCase = ({ animes }: Props) => {
 
       <div className="absolute bg-black w-full h-full opacity-60"></div>
 
-      <div className="absolute bottom-16 w-[50%] pl-6 z-20" >
+      <div className="absolute bottom-5 w-full lg:bottom-16 md:w-[50%] pl-6 z-20" >
         <div className="my-5">
           {currAnime.genres.map((genre) => (
             <span
@@ -56,10 +56,10 @@ const ShowCase = ({ animes }: Props) => {
             </span>
           ))}
         </div>
-        <h2 className="text-animehorizon_orange text-3xl font-bold my-5">
+        <h2 className="text-animehorizon_orange text-2xl lg:text-3xl font-bold my-5">
           {currAnime.title}
         </h2>
-        <p className="text-white text-md">
+        <p className="text-white text-md hidden md:inline">
           {currAnime.about.slice(0, 150)} . . .
         </p>
 
@@ -83,7 +83,7 @@ const ShowCase = ({ animes }: Props) => {
         </div>
       </div>
 
-      <div className="absolute h-full w-full flex items-center justify-between text-animehorizon_orange">
+      <div className="absolute h-full w-full flex items-center justify-between text-animehorizon_orange mb-10 z-30">
         <button className="p-3 hover:text-white" onClick={handleLeftClick}>
           <FaChevronLeft className="text-xl" />
         </button>
