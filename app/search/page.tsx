@@ -1,7 +1,6 @@
-import React, { Suspense } from "react";
 import Searchbar from "@/components/Searchbar";
-import SearchDisplayContainer from "../../components/displayContainers/SearchDisplayContainer";
-import SpinnerIcon from "@/components/icons/Spinner";
+import { getAnimeBySearch } from "@/lib/fetchFns";
+import AnimeCard from "@/components/AnimeCard";
 
 type Props = {
   searchParams: {
@@ -9,22 +8,27 @@ type Props = {
   };
 };
 
-const SearchPage = ({ searchParams }: Props) => {
+const SearchPage = async ({ searchParams }: Props) => {
+  const { animes } = await getAnimeBySearch(searchParams.query)
+
   return (
     <div className="w-[90%] mx-auto max-w-[2000px]">
       <Searchbar defaultSearchValue={searchParams.query} />
 
-      {searchParams.query.length > 0 && (
-        <Suspense
-          fallback={
-            <div className="flex h-[calc(100vh-250px)] w-screen items-center justify-center md:h-full md:w-full">
-              <SpinnerIcon />
-            </div>
-          }
-        >
-          <SearchDisplayContainer searchQuery={searchParams.query} />
-        </Suspense>
-      )} 
+      <div>
+        <h2 className='text-3xl text-animehorizon_orange font-bold mb-5'>Top Results</h2>
+        <div className='text-white grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-7 gap-5'>
+          {searchParams.query && animes.map((anime) => (
+            <AnimeCard
+              anime={anime}
+              key={anime.id}
+              id={anime.id}
+              url={anime.images.large}
+              title={anime.title}
+            />
+          ))}
+        </div>
+      </div>
     </div>
   );
 };

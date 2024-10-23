@@ -1,6 +1,7 @@
-import GenreDisplayContainer from "../../../components/displayContainers/GenreDisplayContainer";
-import { Suspense } from "react";
-import SpinnerIcon from "@/components/icons/Spinner";
+
+import { getAnimesByGenres } from "@/lib/fetchFns";
+import PaginationsComponent from "@/components/PaginationsComponent";
+import AnimeCard from "@/components/AnimeCard";
 
 type Props = {
   params: {
@@ -12,7 +13,11 @@ type Props = {
   };
 };
 
-const GenrePage = ({ params, searchParams }: Props) => {
+const GenrePage = async ({ params, searchParams }: Props) => {
+  const { animes, maxPage } = await getAnimesByGenres(
+    String(searchParams.page),
+    Number(searchParams.page)
+  );
 
   return (
     <div className="w-[90%] mx-auto max-w-[2000px]">
@@ -20,17 +25,25 @@ const GenrePage = ({ params, searchParams }: Props) => {
         {searchParams.name}
       </h2>
 
-      <Suspense fallback={
-        <div className="flex h-[calc(100vh-250px)] w-screen items-center justify-center md:h-full md:w-full">
-          <SpinnerIcon />
-        </div>
-      }>
-        <GenreDisplayContainer
-          id={String(params.id)}
-          page={searchParams.page}
-          name={searchParams.name}
-        />
-      </Suspense>
+      <PaginationsComponent
+        currpage={searchParams.page}
+        maxPage={maxPage}
+        url={`/genre/${params.id}`}
+        extraQueries={`name=${searchParams.name}`}
+      />
+
+      <div className="text-white grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-7  gap-5">
+        {animes.map((anime) => (
+          <AnimeCard
+            anime={anime}
+            key={anime.id}
+            id={anime.id}
+            url={anime.images.large}
+            title={anime.title}
+          />
+      
+        ))}
+      </div>
     </div>
   );
 };

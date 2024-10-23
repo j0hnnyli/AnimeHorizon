@@ -9,7 +9,9 @@ import {
 const ANIME_BASE_URL = "https://api.jikan.moe/v4";
 
 export async function getPopularsAnimes(page: number) {
-  const res = await fetch(`${ANIME_BASE_URL}/top/anime?page=${page}`);
+  const res = await fetch(`${ANIME_BASE_URL}/top/anime?page=${page}`, {
+    cache: 'force-cache'
+  });
 
   if (!res.ok) throw new Error("Fetching Populars Failed");
 
@@ -19,7 +21,9 @@ export async function getPopularsAnimes(page: number) {
 }
 
 export async function getAnimesByGenres(genre_id: string, page: number) {
-  const res = await fetch(`${ANIME_BASE_URL}/anime?genres=${genre_id}&sfw=true&page=${page}`);
+  const res = await fetch(`${ANIME_BASE_URL}/anime?genres=${genre_id}&sfw=true&page=${page}`, {
+    cache: 'force-cache'
+  });
 
   if (!res.ok) {
     const errorMessage = await res.text();
@@ -31,7 +35,9 @@ export async function getAnimesByGenres(genre_id: string, page: number) {
 }
 
 export async function getAnime(id: number) {
-  const res = await fetch(`${ANIME_BASE_URL}/anime/${id}`);
+  const res = await fetch(`${ANIME_BASE_URL}/anime/${id}`, {
+    cache: 'force-cache'
+  });
 
   if (!res.ok) throw new Error(`Fetching Anime: ${id} Failed`);
 
@@ -53,7 +59,9 @@ export async function getGenres() {
 }
 
 export async function getCharacters(id: number) {
-  const res = await fetch(`${ANIME_BASE_URL}/anime/${id}/characters`);
+  const res = await fetch(`${ANIME_BASE_URL}/anime/${id}/characters`, {
+    cache: 'force-cache'
+  });
 
   if (!res.ok) throw new Error(`Fetching Characters for Anime:${id} Failed`);
 
@@ -63,7 +71,9 @@ export async function getCharacters(id: number) {
 }
 
 export async function getRecommendedAnimes(id: number) {
-  const res = await fetch(`${ANIME_BASE_URL}/anime/${id}/recommendations`);
+  const res = await fetch(`${ANIME_BASE_URL}/anime/${id}/recommendations`, {
+    cache: 'force-cache'
+  });
 
   if (!res.ok) {
     throw new Error(`Fetching recommendations for anime with ID ${id} failed: ${res.statusText}`);
@@ -75,7 +85,9 @@ export async function getRecommendedAnimes(id: number) {
 }
 
 export async function getAnimeBySearch(query: string){
-  const res = await fetch(`${ANIME_BASE_URL}/anime?q=${query}`)
+  const res = await fetch(`${ANIME_BASE_URL}/anime?q=${query}`, {
+    cache: 'force-cache'
+  })
 
   if(!res.ok) throw new Error(`Fetching Anime By: ${query} Failed`)
 
