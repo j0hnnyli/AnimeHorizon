@@ -14,16 +14,17 @@ const SearchPage = ({ searchParams }: Props) => {
     <div className="w-[90%] mx-auto max-w-[2000px]">
       <Searchbar defaultSearchValue={searchParams.query} />
 
-      
-      <Suspense
-        fallback={
-          <div className="flex h-[calc(100vh-250px)] w-screen items-center justify-center md:h-full md:w-full">
-            <SpinnerIcon />
-          </div>
-        }
-      >
-        <SearchDisplayContainer searchQuery={searchParams.query} />
-      </Suspense>
+      {searchParams.query.length > 0 && (
+        <Suspense
+          fallback={
+            <div className="flex h-[calc(100vh-250px)] w-screen items-center justify-center md:h-full md:w-full">
+              <SpinnerIcon />
+            </div>
+          }
+        >
+          <SearchDisplayContainer searchQuery={searchParams.query} />
+        </Suspense>
+      )} 
     </div>
   );
 };
