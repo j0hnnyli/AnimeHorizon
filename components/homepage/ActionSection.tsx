@@ -1,13 +1,10 @@
 import React from 'react'
+import { getAnimesByGenres } from '@/lib/fetchFns'
 import Link from 'next/link'
 import CarouselComponent from '../CarouselComponent'
-import { ParsedAnimeType } from '@/lib/types/ParsedAnimeType'
 
-type Props = {
-  actionAnimes: ParsedAnimeType[];
-}
-
-const ActionSection = ({actionAnimes} : Props) => {
+const ActionSection = async () => {
+  const { animes} = await getAnimesByGenres('1', 1)
 
   return (
     <div className='p-5 lg:w-[90%] mx-auto'>
@@ -16,7 +13,7 @@ const ActionSection = ({actionAnimes} : Props) => {
         <Link href='/genre/1?page=1&name=Action'>View All</Link>
       </div>
 
-      <CarouselComponent array={actionAnimes}/>
+      <CarouselComponent array={animes}/>
     </div>
   )
 }

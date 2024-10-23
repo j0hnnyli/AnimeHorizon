@@ -1,6 +1,6 @@
 import PopularsSection from "@/components/homepage/PopularsSection";
 import FantasySection from "@/components/homepage/FantasySection";
-// import ActionSection from "@/components/homepage/ActionSection";
+import ActionSection from "@/components/homepage/ActionSection";
 // import HorrorSection from "@/components/homepage/HorrorSection";
 // import { HomePageData } from "@/lib/fetchFns";
 import ShowCase from "@/components/homepage/ShowCase";
@@ -20,7 +20,9 @@ export default async  function Home() {
       <Suspense fallback={ <SectionLoadingSkeletion/> }>
         <FantasySection/>
       </Suspense>
-      {/* <ActionSection actionAnimes={action} /> */}
+      <Suspense fallback={<SectionLoadingSkeletion/>}>
+        <ActionSection />
+      </Suspense>
       {/* <HorrorSection horrorAnimes={horror}/>   */}
     </div>
   );
