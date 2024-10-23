@@ -1,14 +1,12 @@
 import React from 'react'
 import CarouselComponent from '../CarouselComponent'
 import Link from 'next/link'
-import { ParsedAnimeType } from '@/lib/types/ParsedAnimeType'
+import { getAnimesByGenres, wait } from '@/lib/fetchFns'
 
-type Props = {
-  fantasyAnimes: ParsedAnimeType[];
-}
+const FantasySection = async () => {
+  await wait(3000)
+  const {animes} = await getAnimesByGenres('10', 1)
 
-const FantasySection = ({ fantasyAnimes } : Props) => {
-  
   return (
     <div className='p-5 lg:w-[90%] mx-auto'>
       <div className='text-animehorizon_orange flex items-center justify-between mb-2'>
@@ -16,7 +14,7 @@ const FantasySection = ({ fantasyAnimes } : Props) => {
         <Link href='/genre/10?page=1&name=Fantasy'>View All</Link>
       </div>
 
-      <CarouselComponent array={fantasyAnimes}/>
+      <CarouselComponent array={animes}/>
    </div>
   )
 }
