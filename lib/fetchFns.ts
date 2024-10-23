@@ -96,6 +96,21 @@ export async function getAnimeBySearch(query: string){
   return parseAnimes(data)
 }
 
+
+export async function HomePageData() {
+  const populars = await getPopularsAnimes(1);
+  const fantasy = await getAnimesByGenres("10", 1);
+  const action = await getAnimesByGenres("1", 1);
+  const horror = await getAnimesByGenres("14", 1);
+
+  return { 
+    popular: populars.animes, 
+    fantasy: fantasy.animes, 
+    action: action.animes, 
+    horror: horror.animes 
+  };
+};
+
 export async function wait(time: number): Promise<void> {
   return new Promise((resolve) =>
     setTimeout(() => {

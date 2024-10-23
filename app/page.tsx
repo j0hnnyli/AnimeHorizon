@@ -1,33 +1,20 @@
-import { Suspense } from "react";
-import ShowCase from "@/components/homepage/ShowCase";
 import PopularsSection from "@/components/homepage/PopularsSection";
 import FantasySection from "@/components/homepage/FantasySection";
-import SectionLoadingSkeletion from "@/components/SectionLoadingSkeletion";
 import ActionSection from "@/components/homepage/ActionSection";
 import HorrorSection from "@/components/homepage/HorrorSection";
+import { HomePageData } from "@/lib/fetchFns";
+import ShowCase from "@/components/homepage/ShowCase";
 
-export default function Home() {
+export default async  function Home() {
+  const {popular, fantasy, horror, action} = await HomePageData()
+
   return (
     <div className="max-w-[2000px] mx-auto">
-      <Suspense fallback={ <SectionLoadingSkeletion className="w-full h-[80vh] m-0"/> }>
-        <ShowCase />
-      </Suspense>
-
-      <Suspense fallback={ <SectionLoadingSkeletion/> }>
-        <PopularsSection/>
-      </Suspense>
-
-      <Suspense fallback={ <SectionLoadingSkeletion/> }>
-        <FantasySection />
-      </Suspense>
-
-      <Suspense fallback={ <SectionLoadingSkeletion/> }>
-        <ActionSection />
-      </Suspense>
-      
-      <Suspense fallback={ <SectionLoadingSkeletion/> }>
-        <HorrorSection />
-      </Suspense>
+      <ShowCase animes={popular}/>
+      <PopularsSection popularAnimes={popular}/>
+      <FantasySection fantasyAnimes={fantasy}/>
+      <ActionSection actionAnimes={action} />
+      <HorrorSection horrorAnimes={horror}/>
     </div>
   );
 }

@@ -41,7 +41,6 @@ const GenrePage = async ({ params, searchParams }: Props) => {
             url={anime.images.large}
             title={anime.title}
           />
-      
         ))}
       </div>
     </div>

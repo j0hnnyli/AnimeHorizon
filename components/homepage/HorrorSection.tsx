@@ -1,11 +1,13 @@
 import Link from 'next/link'
 import React from 'react'
 import CarouselComponent from '../CarouselComponent'
-import { getAnimesByGenres } from '@/lib/fetchFns'
+import { ParsedAnimeType } from '@/lib/types/ParsedAnimeType'
 
-const HorrorSection = async () => {
-  const {animes} = await getAnimesByGenres('14', 1)
+type Props = {
+  horrorAnimes: ParsedAnimeType[];
+}
 
+const HorrorSection = ({horrorAnimes} : Props) => {
   return (
     <div className='p-5 lg:w-[90%] mx-auto'>
       <div className='text-animehorizon_orange flex items-center justify-between mb-2'>
@@ -13,7 +15,7 @@ const HorrorSection = async () => {
         <Link href='/genre/14?page=1&name=Horror'>View All</Link>
       </div>
 
-      <CarouselComponent array={animes}/>
+      <CarouselComponent array={horrorAnimes}/>
     </div>
   )
 }
