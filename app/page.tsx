@@ -6,15 +6,16 @@ import { HomePageData } from "@/lib/fetchFns";
 import ShowCase from "@/components/homepage/ShowCase";
 
 export default async  function Home() {
-  const {popular, fantasy, horror, action} = await HomePageData()
+  // const {popular, fantasy, horror, action} = await HomePageData()
 
   return (
     <div className="max-w-[2000px] mx-auto">
-      <ShowCase animes={popular}/>
+      home page
+      {/* <ShowCase animes={popular}/>
       <PopularsSection popularAnimes={popular}/>
       <FantasySection fantasyAnimes={fantasy}/>
       <ActionSection actionAnimes={action} />
-      <HorrorSection horrorAnimes={horror}/>
+      <HorrorSection horrorAnimes={horror}/> */}
     </div>
   );
 }
