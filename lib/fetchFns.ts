@@ -9,9 +9,7 @@ import {
 const ANIME_BASE_URL = "https://api.jikan.moe/v4";
 
 export async function getPopularsAnimes(page: number) {
-  const res = await fetch(`${ANIME_BASE_URL}/top/anime?page=${page}`, {
-    cache: 'force-cache'
-  });
+  const res = await fetch(`${ANIME_BASE_URL}/top/anime?page=${page}`);
 
   if (!res.ok) throw new Error("Fetching Populars Failed");
 
@@ -21,9 +19,7 @@ export async function getPopularsAnimes(page: number) {
 }
 
 export async function getAnimesByGenres(genre_id: string, page: number) {
-  const res = await fetch(`${ANIME_BASE_URL}/anime?genres=${genre_id}&sfw=true&page=${page}`, {
-    cache: 'force-cache'
-  });
+  const res = await fetch(`${ANIME_BASE_URL}/anime?genres=${genre_id}&sfw=true&page=${page}`);
 
   if (!res.ok) {
     const errorMessage = await res.text();
@@ -71,9 +67,7 @@ export async function getCharacters(id: number) {
 }
 
 export async function getRecommendedAnimes(id: number) {
-  const res = await fetch(`${ANIME_BASE_URL}/anime/${id}/recommendations`, {
-    cache: 'force-cache'
-  });
+  const res = await fetch(`${ANIME_BASE_URL}/anime/${id}/recommendations`);
 
   if (!res.ok) {
     throw new Error(`Fetching recommendations for anime with ID ${id} failed: ${res.statusText}`);
@@ -85,9 +79,7 @@ export async function getRecommendedAnimes(id: number) {
 }
 
 export async function getAnimeBySearch(query: string){
-  const res = await fetch(`${ANIME_BASE_URL}/anime?q=${query}`, {
-    cache: 'force-cache'
-  })
+  const res = await fetch(`${ANIME_BASE_URL}/anime?q=${query}`)
 
   if(!res.ok) throw new Error(`Fetching Anime By: ${query} Failed`)
 
@@ -95,21 +87,6 @@ export async function getAnimeBySearch(query: string){
 
   return parseAnimes(data)
 }
-
-
-export async function HomePageData() {
-  const populars = await getPopularsAnimes(1);
-  const fantasy = await getAnimesByGenres("10", 1);
-  const action = await getAnimesByGenres("1", 1);
-  const horror = await getAnimesByGenres("14", 1);
-
-  return { 
-    popular: populars.animes, 
-    fantasy: fantasy.animes, 
-    action: action.animes, 
-    horror: horror.animes 
-  };
-};
 
 export async function wait(time: number): Promise<void> {
   return new Promise((resolve) =>

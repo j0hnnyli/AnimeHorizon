@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import Logo from './Logo'
 import { FaMagnifyingGlass } from "react-icons/fa6";
-import { FaTv } from "react-icons/fa";
+import { FaRegBookmark } from "react-icons/fa";
 import NavBarBrowse from './NavBarBrowse';
 import { Suspense } from 'react';
 import SectionLoadingSkeletion from './SectionLoadingSkeletion';
@@ -34,7 +34,7 @@ const Navbar = () => {
 
         <Sheet>
           <SheetTrigger className='h-20 flex justify-center items-center hover:bg-gray-800 px-3'>
-            <FaTv className='text-xl'/>
+            <FaRegBookmark className='text-xl'/>
           </SheetTrigger>
 
           <SheetContent className='bg-black text-white w-80'>

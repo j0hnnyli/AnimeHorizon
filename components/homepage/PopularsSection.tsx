@@ -2,20 +2,16 @@ import Link from 'next/link';
 import CarouselComponent from '../CarouselComponent';
 import { ParsedAnimeType } from '@/lib/types/ParsedAnimeType';
 
-type Props = {
-  popularAnimes: ParsedAnimeType[]
-}
-
-const PopularsSection = ({ popularAnimes } : Props) => {
+const PopularsSection = async ({animes} : {animes: ParsedAnimeType[]}) => {
 
   return (
     <div className='p-5 lg:w-[90%] mx-auto'>
       <div className='text-animehorizon_orange flex items-center justify-between mb-2'>
         <h2 className='text-3xl font-bold'>Populars</h2>
-        <Link href='/popular?page=1'>View All</Link>
+        <Link href='/popular?page=1' className='hover:text-white hover:underline'>View All</Link>
       </div>
 
-      <CarouselComponent array={popularAnimes}/>
+      <CarouselComponent array={animes}/>
     </div>
   )
 }

@@ -35,7 +35,7 @@ const ShowCase = ({ animes }: Props) => {
   };
 
   return (
-    <div className="h-[80vh] w-full relative">
+    <div className="h-[80vh] max-h-[1000px] w-full relative">
       <Image
         src={currAnime.images.large}
         alt="anime image"

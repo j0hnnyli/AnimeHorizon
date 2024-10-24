@@ -13,9 +13,11 @@ type Props = {
   };
 };
 
+export const revalidate = 0;
+
 const GenrePage = async ({ params, searchParams }: Props) => {
   const { animes, maxPage } = await getAnimesByGenres(
-    String(searchParams.page),
+    String(params.id),
     Number(searchParams.page)
   );
 

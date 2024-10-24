@@ -12,13 +12,20 @@ const MiniWatchList = () => {
 
   return (
     <>
-      <h2 className='text-animehorizon_orange font-bold text-3xl'>My WatchList : {watchlist.length}</h2>
-      <div className='h-1 bg-white w-20 mx-auto rounded-xl my-5'></div>
+      <div className='flex items-center justify-center flex-col'>
+        <h2 className='text-animehorizon_orange font-bold text-3xl'>My WatchList : {watchlist.length}</h2>
+        <Link href='/watchlist' className='text-animehorizon_orange hover:text-white hover:underline'>
+          <SheetClose>
+            View All
+          </SheetClose>
+        </Link>
+        <div className='h-1 bg-white w-44 mx-auto rounded-xl my-5'></div>
+      </div>
 
-      <div className=''>
+      <div className='h-[75vh] md:h-[90vh] overflow-y-auto pb-20'>
         {watchlist.map((anime) => (
           <div key={anime.id} className=' mb-5'>
-            <div className='h-40 w-[50%] md:w-[60%] mx-auto relative'>
+            <div className='h-[250px] w-[80%] mx-auto relative'>
               <Image
                 src={anime.images.large}
                 alt={anime.title}
