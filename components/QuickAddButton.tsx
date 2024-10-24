@@ -33,16 +33,16 @@ const QuickAddButton = ({ anime, id }: Props) => {
 
   return (
     <Sheet>
-        {(!match && mounted) && (
-            <SheetTrigger 
-              onClick={() => handleAdd(anime)}
-              className="absolute bottom-3 right-3 z-40 hover:text-white text-black p-2 flex justify-center items-center rounded-full bg-animehorizon_orange"
-            >
-              <div>
-                <FaPlus className="text-md" />
-              </div>
-            </SheetTrigger>
-        )}
+      {(!match && mounted) && (
+          <SheetTrigger 
+            onClick={() => handleAdd(anime)}
+            className="absolute bottom-3 right-3 z-40 hover:text-white text-black p-2 flex justify-center items-center rounded-full bg-animehorizon_orange"
+          >
+            <div>
+              <FaPlus className="text-md" />
+            </div>
+          </SheetTrigger>
+      )}
 
       <SheetContent className="bg-black text-white w-80">
         <MiniWatchList />

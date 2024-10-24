@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/sheet"
 import MiniWatchList from './MiniWatchList';
 import GetGenres from './GetGenres';
+import MiniWatchlistLengthUI from './MiniWatchlistLengthUI';
 
 const Navbar = () => {
   return (
@@ -33,8 +34,9 @@ const Navbar = () => {
         </Link>
 
         <Sheet>
-          <SheetTrigger className='h-20 flex justify-center items-center hover:bg-gray-800 px-3'>
-            <FaRegBookmark className='text-xl'/>
+          <SheetTrigger className='h-20 flex justify-center items-center hover:bg-gray-800 px-3 relative'>     
+            <FaRegBookmark className='text-2xl'/>
+            <MiniWatchlistLengthUI/>         
           </SheetTrigger>
 
           <SheetContent className='bg-black text-white w-80'>
