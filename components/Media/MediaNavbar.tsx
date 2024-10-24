@@ -7,9 +7,9 @@ import {
 } from "@/components/ui/sheet"
 import MediaNavbarContent from './MediaNavbarContent';
 import Link from 'next/link';
-import { FaTv } from 'react-icons/fa';
 import { FaMagnifyingGlass } from "react-icons/fa6";
 import MiniWatchList from '../MiniWatchList';
+import { FaRegBookmark } from "react-icons/fa";
 
 const MediaNavbar = () => {
   return (
@@ -44,7 +44,7 @@ const MediaNavbar = () => {
 
         <Sheet>
           <SheetTrigger className='h-10 flex justify-center items-center px-3'>
-            <FaTv className='text-xl'/>
+            <FaRegBookmark className='text-xl'/>
           </SheetTrigger>
 
           <SheetContent className='bg-black text-white w-80'>

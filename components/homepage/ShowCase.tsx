@@ -1,4 +1,5 @@
 "use client";
+
 import { useState } from "react";
 import { FaInfo } from "react-icons/fa6";
 import { FaPlay } from "react-icons/fa";
@@ -34,7 +35,7 @@ const ShowCase = ({ animes }: Props) => {
   };
 
   return (
-    <div className="h-[80vh] w-full relative">
+    <div className="h-[80vh] max-h-[1000px] w-full relative">
       <Image
         src={currAnime.images.large}
         alt="anime image"
@@ -45,7 +46,7 @@ const ShowCase = ({ animes }: Props) => {
 
       <div className="absolute bg-black w-full h-full opacity-60"></div>
 
-      <div className="absolute bottom-5 w-full lg:bottom-16 md:w-[50%] pl-6 z-20" >
+      <div className="absolute bottom-5 w-full lg:bottom-16 md:w-[50%] pl-6 z-40" >
         <div className="my-5">
           {currAnime.genres.map((genre) => (
             <span

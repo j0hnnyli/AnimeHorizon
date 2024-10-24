@@ -1,33 +1,21 @@
+import PopularsSection from "@/components/homepage/PopularsSection";
+import ActionSection from "@/components/homepage/ActionSection";
+import ShowCase from "@/components/homepage/ShowCase";
 import { getPopularsAnimes } from "@/lib/fetchFns";
 import { Suspense } from "react";
-import ShowCase from "@/components/homepage/ShowCase";
-import PopularsSection from "@/components/homepage/PopularsSection";
-import FantasySection from "@/components/homepage/FantasySection";
 import SectionLoadingSkeletion from "@/components/SectionLoadingSkeletion";
-import ActionSection from "@/components/homepage/ActionSection";
-import HorrorSection from "@/components/homepage/HorrorSection";
 
-export default async function Home() {
-  const { animes: popularAnimes } = await getPopularsAnimes(1);
-  
+export default async  function Home() {
+  const {animes} = await getPopularsAnimes(1);
+
   return (
     <div className="max-w-[2000px] mx-auto">
-      <ShowCase animes={popularAnimes}/>
+      <ShowCase animes={animes}/>
 
-      <Suspense fallback={ <SectionLoadingSkeletion/> }>
-        <PopularsSection/>
-      </Suspense>
-
-      <Suspense fallback={ <SectionLoadingSkeletion/> }>
-        <FantasySection />
-      </Suspense>
-
-      <Suspense fallback={ <SectionLoadingSkeletion/> }>
-        <ActionSection />
-      </Suspense>
+      <PopularsSection animes={animes}/>
       
       <Suspense fallback={ <SectionLoadingSkeletion/> }>
-        <HorrorSection />
+        <ActionSection/>
       </Suspense>
     </div>
   );

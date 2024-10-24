@@ -1,9 +1,8 @@
 import Link from 'next/link'
 import Logo from './Logo'
 import { FaMagnifyingGlass } from "react-icons/fa6";
-import { FaTv } from "react-icons/fa";
+import { FaRegBookmark } from "react-icons/fa";
 import NavBarBrowse from './NavBarBrowse';
-import { getGenres } from '@/lib/fetchFns';
 import { Suspense } from 'react';
 import SectionLoadingSkeletion from './SectionLoadingSkeletion';
 import {
@@ -12,6 +11,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet"
 import MiniWatchList from './MiniWatchList';
+import GetGenres from './GetGenres';
 
 const Navbar = () => {
   return (
@@ -34,7 +34,7 @@ const Navbar = () => {
 
         <Sheet>
           <SheetTrigger className='h-20 flex justify-center items-center hover:bg-gray-800 px-3'>
-            <FaTv className='text-xl'/>
+            <FaRegBookmark className='text-xl'/>
           </SheetTrigger>
 
           <SheetContent className='bg-black text-white w-80'>
@@ -54,29 +54,8 @@ function BrowseContainer(){
       </div>
 
       <Suspense fallback={ <SectionLoadingSkeletion className='w-[500px] h-[300px] m-2'/> }>
-        <Genres/>
+        <GetGenres/>
       </Suspense>
-    </div>
-  )
-}
-
-async function Genres(){
-  const genres = await getGenres();
-
-  return (
-    <div className='flex flex-col w-[400px]'>
-      <h3 className='text-left p-2 text-animehorizon_orange font-bold'>Genres</h3>
-      <div className='grid grid-cols-3 h-auto overflow-auto p-2 text-sm'>
-        {genres.map((genre) => (
-          <Link 
-            key={genre.id}
-            href={`/genre/${genre.id}?page=1&name=${genre.name}`}
-            className='m-2 w-full text-left hover:text-animehorizon_orange'
-          >
-            {genre.name}
-          </Link>
-        ))}
-      </div>
     </div>
   )
 }

@@ -18,18 +18,22 @@ export async function getPopularsAnimes(page: number) {
   return parseAnimes(data);
 }
 
-export async function getAnimesByGenres(genre_id: string, page: number){
+export async function getAnimesByGenres(genre_id: string, page: number) {
   const res = await fetch(`${ANIME_BASE_URL}/anime?genres=${genre_id}&sfw=true&page=${page}`);
 
-  if (!res.ok) throw new Error("Fetching Animes By Genres Failed");
+  if (!res.ok) {
+    const errorMessage = await res.text();
+    throw new Error(`Fetching Animes By Genres Failed: ${res.status} ${errorMessage}`);
+  }
 
   const data = await res.json();
-
   return parseAnimes(data);
 }
 
 export async function getAnime(id: number) {
-  const res = await fetch(`${ANIME_BASE_URL}/anime/${id}`);
+  const res = await fetch(`${ANIME_BASE_URL}/anime/${id}`, {
+    cache: 'force-cache'
+  });
 
   if (!res.ok) throw new Error(`Fetching Anime: ${id} Failed`);
 
@@ -51,7 +55,9 @@ export async function getGenres() {
 }
 
 export async function getCharacters(id: number) {
-  const res = await fetch(`${ANIME_BASE_URL}/anime/${id}/characters`);
+  const res = await fetch(`${ANIME_BASE_URL}/anime/${id}/characters`, {
+    cache: 'force-cache'
+  });
 
   if (!res.ok) throw new Error(`Fetching Characters for Anime:${id} Failed`);
 
