@@ -17,6 +17,8 @@ type Props = {
 const Recommendations = async ({ id } : Props) => {
   const recommendations = await getRecommendedAnimes(id)
 
+  if(!recommendations.length) return null;
+
   return (
     <div className='w-[90%] mx-auto my-10'>
       <h2 className='text-2xl'>

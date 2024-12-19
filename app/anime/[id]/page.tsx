@@ -50,7 +50,8 @@ const AnimePage = async ({ params }: Props) => {
           alt={title}
           width={250}
           height={150}
-          className="relative z-20 h-full w-[400px] mx-auto"
+          objectFit="contain"
+          className="relative z-20 h-[100%] w-[350px] mx-auto"
         />
       </div>
       
