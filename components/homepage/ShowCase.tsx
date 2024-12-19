@@ -14,7 +14,7 @@ type Props = {
 
 const ShowCase = ({ animes }: Props) => {
   const [slide, setSlide] = useState(0);
-  const topFiveAnimes: Array<ParsedAnimeType> = animes.slice(0, 6);
+  const topFiveAnimes: Array<ParsedAnimeType> = animes.slice(0, 5);
 
   const currAnime = topFiveAnimes[slide];
 
@@ -38,15 +38,25 @@ const ShowCase = ({ animes }: Props) => {
     <div className="h-[80vh] max-h-[1000px] w-full relative">
       <Image
         src={currAnime.images.large}
-        alt="anime image"
+        alt={currAnime.title}
         fill
         objectFit="cover"
-        className="ease-in-out"
+        className="z-10"
       />
 
-      <div className="absolute bg-black w-full h-full opacity-60"></div>
+      <div className="absolute w-full h-full backdrop-blur-lg z-20"></div>
+      <div className="absolute bg-black w-full h-full opacity-40 z-40"></div>
 
-      <div className="absolute bottom-5 w-full lg:bottom-16 md:w-[50%] pl-6 z-40" >
+      <Image
+        src={currAnime.images.large}
+        alt={currAnime.title}
+        width={300}
+        height={500}
+        className="ease-in-out w-[100%] h-full md:object-contain relative z-30"
+      />
+
+
+      <div className="absolute bottom-5 w-full lg:bottom-16 md:w-[50%] pl-6 z-[45]" >
         <div className="my-5">
           {currAnime.genres.map((genre) => (
             <span
@@ -57,6 +67,7 @@ const ShowCase = ({ animes }: Props) => {
             </span>
           ))}
         </div>
+
         <h2 className="text-animehorizon_orange text-2xl lg:text-3xl font-bold my-5">
           {currAnime.title}
         </h2>
@@ -84,7 +95,7 @@ const ShowCase = ({ animes }: Props) => {
         </div>
       </div>
 
-      <div className="absolute h-full w-full flex items-center justify-between text-animehorizon_orange mb-10 z-30">
+      <div className="absolute top-0 h-full w-full flex items-center justify-between text-animehorizon_orange mb-10 z-40">
         <button className="p-3 hover:text-white" onClick={handleLeftClick}>
           <FaChevronLeft className="text-xl" />
         </button>
