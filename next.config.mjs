@@ -2,7 +2,7 @@
 const nextConfig = {
   images : {
     domains : ["cdn.myanimelist.net"],
-    unoptimized: false
+    unoptimized: true,
   }
 };
 
