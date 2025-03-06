@@ -1,9 +1,9 @@
-##AnimeHorizon 
+## AnimeHorizon 
 An anime platform where users can explore the vast world of anime. They can browse different genres that match their tastes or search for specific titles. If they find an anime they like, they can easily save it to their personal anime list no account needed.
 
 <a href="https://animehorizon.vercel.app/" target="_blank">Demo</a>
 
-##What Under The Hood
+## What Under The Hood
 - Next.js
 - Tailwind CSS
 - Vercel Deployment
