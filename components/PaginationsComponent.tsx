@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import React from 'react'
 import { FaArrowLeftLong, FaArrowRightLong } from "react-icons/fa6";
 
 type Props = {
@@ -10,6 +9,7 @@ type Props = {
 }
 
 const PaginationsComponent = ({maxPage, currpage, url, extraQueries = ""} : Props) => {
+
   return (
     <div className='flex justify-between items-center w-full mb-5'>
       {
