@@ -1,5 +1,4 @@
 import { Anime, SingleAnime } from "./types/AnimeType";
-import { Character } from "./types/CharacterType";
 import { Recommendation } from "./types/RecommendationType";
 import { Genre } from "./types/GenreType";
 
@@ -40,19 +39,6 @@ export function parseSingleAnime(anime: SingleAnime){
     themes: anime.themes.map((theme) => theme.name),
     licensors: anime.licensors.map((liscensor) => liscensor.name)
   }
-}
-
-export function parseCharacters(characters : Character[]){
-  const parsed = characters.map((character) => (
-    {
-      id: character.character.mal_id,
-      name: character.character.name ,
-      role: character.role || "",
-      image: character.character.images.jpg.image_url || "",
-    }
-  ))
-
-  return parsed;
 }
 
 export function parseRecommendations(recommendations: Recommendation[]){

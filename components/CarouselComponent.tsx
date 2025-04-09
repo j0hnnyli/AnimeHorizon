@@ -7,9 +7,10 @@ import {
 } from "@/components/ui/carousel"
 import AnimeCard from "./AnimeCard"
 import { ParsedAnimeType } from "@/lib/types/ParsedAnimeType"
+import { Character } from "@/lib/types/CharacterType"
 
 type Props = {
-  array : ParsedAnimeType[]
+  array : ParsedAnimeType[];
 }
 
 const CarouselComponent = ({array} : Props) => {

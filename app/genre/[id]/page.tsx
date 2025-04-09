@@ -1,7 +1,9 @@
 
-import { getAnimesByGenres } from "@/lib/fetchFns";
+import { getAnimesByGenres, wait } from "@/lib/fetchFns";
 import PaginationsComponent from "@/components/PaginationsComponent";
 import AnimeCard from "@/components/AnimeCard";
+import Layout from "../layout";
+import GenrePagination from "../GenrePagination";
 
 type Props = {
   params: {
@@ -22,19 +24,10 @@ const GenrePage = async ({ params, searchParams }: Props) => {
   );
 
   return (
-    <div className="max_width p-3">
-      <h2 className="text-animehorizon_orange text-5xl mb-10">
-        {searchParams.name}
-      </h2>
+    <>
+      <GenrePagination maxPage={maxPage}/>
 
-      <PaginationsComponent
-        currpage={searchParams.page}
-        maxPage={maxPage}
-        url={`/genre/${params.id}`}
-        extraQueries={`name=${searchParams.name}`}
-      />
-
-      <div className="text-white grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-7  gap-5">
+      <div className="text-white grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6 gap-5">
         {animes.map((anime) => (
           <AnimeCard
             anime={anime}
@@ -45,7 +38,7 @@ const GenrePage = async ({ params, searchParams }: Props) => {
           />
         ))}
       </div>
-    </div>
+    </>
   );
 };
 

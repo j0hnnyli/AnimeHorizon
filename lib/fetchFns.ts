@@ -1,7 +1,6 @@
 import {
   parseAnimes,
   parseSingleAnime,
-  parseCharacters,
   parseRecommendations,
   parseGenres,
 } from "./parsingFns";
@@ -52,18 +51,6 @@ export async function getGenres() {
   const data = await res.json();
 
   return parseGenres(data.data);
-}
-
-export async function getCharacters(id: number) {
-  const res = await fetch(`${ANIME_BASE_URL}/anime/${id}/characters`, {
-    cache: 'force-cache'
-  });
-
-  if (!res.ok) throw new Error(`Fetching Characters for Anime:${id} Failed`);
-
-  const data = await res.json();
-
-  return parseCharacters(data.data);
 }
 
 export async function getRecommendedAnimes(id: number) {
