@@ -1,8 +1,6 @@
 
-import { getAnimesByGenres, wait } from "@/lib/fetchFns";
-import PaginationsComponent from "@/components/PaginationsComponent";
+import { getAnimesByGenres } from "@/lib/fetchFns";
 import AnimeCard from "@/components/AnimeCard";
-import Layout from "../layout";
 import GenrePagination from "../GenrePagination";
 
 type Props = {
