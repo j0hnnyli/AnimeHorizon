@@ -26,7 +26,7 @@ const Searchbar = ({defaultSearchValue} : Props) => {
         onChange={(e) => setSearchValue(e.target.value)}
         type="text" 
         placeholder='Search ...'
-        className='my-10  bg-black text-white w-full p-2 block outline-none text-2xl border-b-2 border-animehorizon_orange text-center'
+        className='my-10  bg-black text-white w-full p-2 block outline-none text-2xl border-b-2 border-animehorizon_orange text-center md:w-[60%] mx-auto'
       />
     </div>
   )

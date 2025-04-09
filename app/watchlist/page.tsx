@@ -4,7 +4,7 @@ import WatchlistContainer from './WatchlistContainer';
 
 const WatchlistPage = () => {
   return (
-    <div className='max-w-[2000px] w-[90%] mx-auto'>
+    <div className='max_width p-3'>
       <div className='text-animehorizon_orange font-bold text-2xl flex items-center justify-center'>
         <FaRegBookmark className='text-2xl mr-3'/>        
         <h2>MY WATCHLIST</h2>

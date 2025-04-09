@@ -5,7 +5,7 @@ import { watchlistContext } from '@/context/watchlistContext'
 import Image from 'next/image'
 import Link from 'next/link'
 import { FaTrash } from "react-icons/fa";
-import { SheetClose } from './ui/sheet'
+import { SheetClose, SheetTitle, SheetDescription } from './ui/sheet'
 
 const MiniWatchList = () => {
   const { watchlist, handleDelete } = useContext(watchlistContext)
@@ -13,12 +13,14 @@ const MiniWatchList = () => {
   return (
     <>
       <div className='flex items-center justify-center flex-col'>
-        <h2 className='text-animehorizon_orange font-bold text-3xl'>My WatchList : {watchlist.length}</h2>
-        <Link href='/watchlist' className='text-animehorizon_orange hover:text-white hover:underline'>
-          <SheetClose>
-            View All
-          </SheetClose>
-        </Link>
+        <SheetTitle className='text-animehorizon_orange font-bold text-3xl'>My WatchList : {watchlist.length}</SheetTitle>
+        <SheetDescription>
+          <Link href='/watchlist' className='text-animehorizon_orange hover:text-white hover:underline'>
+            <SheetClose>
+              View All
+            </SheetClose>
+          </Link>
+        </SheetDescription>
         <div className='h-1 bg-white w-44 mx-auto rounded-xl my-5'></div>
       </div>
 

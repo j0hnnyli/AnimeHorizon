@@ -4,12 +4,14 @@ import Link from 'next/link'
 import GenreDropdown from './GenreDropdown'
 import SectionLoadingSkeletion from '../SectionLoadingSkeletion'
 import GetGenresContainer from './GetGenresContainer'
-import { SheetClose } from '../ui/sheet'
+import { SheetClose, SheetTitle } from '../ui/sheet'
 
 const MediaNavbarContent = () => {
   return (
     <div className='overflow-auto'>
-      <Logo className='flex-col'/>
+      <SheetTitle>
+        <Logo className='flex-col'/>
+      </SheetTitle>
 
       <div className='flex flex-col w-[90%]'>
         <Link href="/" className='mt-3'>

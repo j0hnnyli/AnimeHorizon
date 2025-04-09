@@ -12,7 +12,7 @@ const PopularPage = async ({searchParams} : Props) => {
   const {animes, maxPage} = await getPopularsAnimes(searchParams.page);
 
   return (
-    <div className='max-w-[2000px] w-[90%] mx-auto'>
+    <div className='max_width p-3'>
       <h2 className='text-animehorizon_orange text-5xl mb-10'>Most Popular Animes</h2> 
 
       <PaginationsComponent
@@ -21,7 +21,7 @@ const PopularPage = async ({searchParams} : Props) => {
         url={`/popular`}
       />
 
-      <div className='text-white grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-7 gap-5'>
+      <div className='text-white grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6 gap-5'>
         {animes.map((anime) => (
           <AnimeCard
             anime={anime}

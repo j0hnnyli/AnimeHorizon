@@ -17,32 +17,34 @@ import MiniWatchlistLengthUI from './MiniWatchlistLengthUI';
 const Navbar = () => {
   return (
     <div 
-      className="hidden md:flex items-center justify-between top-0 fixed w-full text-animehorizon_orange z-50  bg-animehorizon_black h-20 px-5"
+      className="hidden md:flex items-center justify-center top-0 fixed w-full text-animehorizon_orange z-50  bg-animehorizon_black h-20"
     >
-      <div className='flex items-center'>
-        <Logo/>
-        <NavBarBrowse>
-          <BrowseContainer/>
-        </NavBarBrowse>
-      </div>
+      <div className='h-full flex items-center justify-between w-full max_width'>
+        <div className='flex items-center pl-3'>
+          <Logo/>
+          <NavBarBrowse>
+            <BrowseContainer/>
+          </NavBarBrowse>
+        </div>
 
-      <div className='w-full flex items-center justify-end'>
-        <Link href="/search?query="
-          className='h-20 flex justify-center items-center hover:bg-gray-800 px-3'
-        >
-          <FaMagnifyingGlass className='text-xl'/>
-        </Link>
+        <div className='w-full flex items-center justify-end'>
+          <Link href="/search?query="
+            className='h-20 flex justify-center items-center hover:bg-gray-800 px-3'
+          >
+            <FaMagnifyingGlass className='text-xl'/>
+          </Link>
 
-        <Sheet>
-          <SheetTrigger className='h-20 flex justify-center items-center hover:bg-gray-800 px-3 relative'>     
-            <FaRegBookmark className='text-2xl'/>
-            <MiniWatchlistLengthUI/>         
-          </SheetTrigger>
+          <Sheet>
+            <SheetTrigger className='h-20 flex justify-center items-center hover:bg-gray-800 px-3 relative'>     
+              <FaRegBookmark className='text-2xl'/>
+              <MiniWatchlistLengthUI/>         
+            </SheetTrigger>
 
-          <SheetContent className='bg-black text-white w-80'>
-            <MiniWatchList/>
-          </SheetContent>
-        </Sheet>
+            <SheetContent className='bg-black text-white w-80'>
+              <MiniWatchList/>
+            </SheetContent>
+          </Sheet>
+        </div>
       </div>
     </div>
   )
