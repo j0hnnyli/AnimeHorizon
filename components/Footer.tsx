@@ -5,7 +5,7 @@ import ScrollTopButton from './ScrollTopButton';
 
 const Footer = () => {
   return (
-    <footer className="bg-animehorizon_black text-white py-10 mt-16 border-t-2 border-white relative">
+    <footer className="bg-animehorizon_black text-white py-10 mt-10 border-t-2 border-white relative">
       <ScrollTopButton />
 
       <div className="flex flex-col lg:flex-row lg:justify-between px-5 max-w-[2000px] mx-auto ">

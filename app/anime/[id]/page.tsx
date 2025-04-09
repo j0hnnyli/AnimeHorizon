@@ -3,7 +3,6 @@ import AnimeReactPlayer from "@/components/AnimeReactPlayer";
 import { getAnime } from "@/lib/fetchFns";
 import ShowLessMoreText from "@/components/ShowLessMoreText";
 import Image from "next/image";
-import Characters from "@/components/Characters";
 import { Suspense } from "react";
 import SectionLoadingSkeletion from "@/components/SectionLoadingSkeletion";
 import Recommendations from "@/components/Recommendations";
@@ -34,8 +33,8 @@ const AnimePage = async ({ params }: Props) => {
   }  = anime;
   
   return (
-    <div className="text-white max-w-[2000px] mx-auto">
-      <div className="relative h-[50vh]">
+    <div className="text-white max_width">
+      <div className="relative h-[55vh] max-h-[700px]">
         <Image
           src={images.large}
           alt={title}
@@ -45,17 +44,18 @@ const AnimePage = async ({ params }: Props) => {
         />
         <div className="absolute w-full h-full backdrop-blur-lg"></div>
 
-        <Image
-          src={images.large}
-          alt={title}
-          width={250}
-          height={150}
-          objectFit="contain"
-          className="relative z-20 h-[100%] w-[350px] mx-auto"
-        />
+        <div className="relative z-20 h-[100%] mx-auto">
+          <Image
+            src={images.large}
+            alt={title}
+            width={250}
+            height={150}
+            className="w-full h-full object-contain"
+          />
+        </div>
       </div>
       
-      <div className="w-[90%] mx-auto mt-10 flex flex-col lg:flex-row gap-3">
+      <div className="mt-10 flex flex-col lg:flex-row gap-3 px-3">
         <div className="w-full lg:w-[70%]">
           <h2 className="text-animehorizon_orange text-4xl font-bold mb-3">{title}</h2>
 
@@ -118,14 +118,10 @@ const AnimePage = async ({ params }: Props) => {
 
         </div>
 
-        <div className="lg:w-[50%] h-[250px] my-5 lg:my-0">
+        <div className="lg:w-[50%] lg:h-[250px] lg:my-0">
           <AnimeReactPlayer url={youtubeUrl}/>
         </div>
       </div>
-      
-      <Suspense fallback={<SectionLoadingSkeletion className="h-[410px] mt-10 w-[90%]"/>}>
-        <Characters id={id}/>
-      </Suspense>
       
       <Suspense fallback={<SectionLoadingSkeletion className="w-[90%]"/>}>
         <Recommendations id={id}/>

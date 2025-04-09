@@ -9,7 +9,7 @@ import AnimeCard from "./AnimeCard"
 import { ParsedAnimeType } from "@/lib/types/ParsedAnimeType"
 
 type Props = {
-  array : ParsedAnimeType[]
+  array : ParsedAnimeType[];
 }
 
 const CarouselComponent = ({array} : Props) => {
