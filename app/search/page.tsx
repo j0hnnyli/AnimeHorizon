@@ -12,7 +12,7 @@ const SearchPage = async ({ searchParams }: Props) => {
   const { animes } = await getAnimeBySearch(searchParams.query)
 
   return (
-    <div className="w-[90%] mx-auto max-w-[2000px]">
+    <div className="max_width p-3">
       <Searchbar defaultSearchValue={searchParams.query} />
 
       <div>

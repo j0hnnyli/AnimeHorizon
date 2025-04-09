@@ -22,8 +22,8 @@ const GenrePage = async ({ params, searchParams }: Props) => {
   );
 
   return (
-    <div className="w-[90%] mx-auto max-w-[2000px]">
-      <h2 className="text-animehorizon_orange text-5xl my-10">
+    <div className="max_width p-3">
+      <h2 className="text-animehorizon_orange text-5xl mb-10">
         {searchParams.name}
       </h2>
 

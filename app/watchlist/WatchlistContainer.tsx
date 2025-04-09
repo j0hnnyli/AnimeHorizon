@@ -17,10 +17,10 @@ const WatchlistContainer = () => {
 
   return (
     <>
-      <div className='text-white grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-7 gap-5'>
+      <div className='text-white grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6 gap-5'>
         {mounted && watchlist.map((anime) => (
           <div key={anime.id} className=' mb-5'>
-          <div className='h-[250px] w-full mx-auto relative'>
+          <div className='h-[300px] w-full mx-auto relative'>
             <Image
               src={anime.images.large}
               alt={anime.title}

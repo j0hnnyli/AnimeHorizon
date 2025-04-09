@@ -35,7 +35,7 @@ export default function RootLayout({
         >
           <Navbar/>
           <MediaNavbar/>
-            <main className="mt-16 md:mt-20">
+            <main className="mt-14 md:mt-20">
                 {children}
             </main>
           <Footer/>

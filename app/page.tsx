@@ -9,7 +9,7 @@ export default async  function Home() {
   const {animes} = await getPopularsAnimes(1);
 
   return (
-    <div className="max-w-[2000px] mx-auto">
+    <div className="max_width">
       <ShowCase animes={animes}/>
 
       <PopularsSection animes={animes}/>

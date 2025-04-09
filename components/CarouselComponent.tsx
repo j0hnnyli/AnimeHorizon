@@ -13,12 +13,16 @@ type Props = {
 }
 
 const CarouselComponent = ({array} : Props) => {
+
   return (
-    <Carousel opts={{
-      slidesToScroll: 2,
-      dragFree: true
-    }}>
-      <CarouselContent className='flex'>
+    <Carousel 
+      opts={{
+        slidesToScroll: 2,
+        dragFree: true
+      }} 
+      className=""
+    >
+      <CarouselContent className=''>
         {array.map((anime) => (
             <CarouselItem key={anime.id} className='basis-1/2 md:basis-1/4 lg:basis-1/5 xl:basis-1/6 2xl:basis-1/7'>
               <AnimeCard 
@@ -32,8 +36,16 @@ const CarouselComponent = ({array} : Props) => {
           ))
         }
       </CarouselContent>
-      <CarouselPrevious className="hidden lg:flex"/>
-      <CarouselNext className="hidden lg:flex"/>
+      <div className="absolute top-1/2 left-2 hidden md:flex items-center justify-center">
+        <CarouselPrevious 
+          className="relative left-0 translate-x-0 hover:translate-x-0 hover:bg-animehorizon_orange hover:text-white" 
+        />
+      </div>
+      <div className="absolute top-1/2 right-2 hidden md:flex items-center justify-center">
+        <CarouselNext 
+          className="relative right-0 translate-x-0 hover:translate-x-0 hover:bg-animehorizon_orange hover:text-white" 
+        />
+      </div>
     </Carousel>
   )
 }

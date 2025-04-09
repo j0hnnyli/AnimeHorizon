@@ -15,7 +15,7 @@ const AnimeCard = ({ id, url, title, anime }: Props) => {
   return (
     <div className="relative hover:scale-105">
       <Link href={`/anime/${id}`} className="absolute w-full h-full z-10"></Link>
-      <div className="h-[250px] relative">
+      <div className="h-[250px] md:h-[300px] relative">
         <QuickAddButton
           id={id}
           anime={anime}
